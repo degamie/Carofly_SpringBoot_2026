@@ -1,0 +1,38 @@
+<!--WID(24/4/2026(Sarthak Mittal(GameOLight)-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carofly Game SpringBoot(SSN) Server</title>
+</head>
+<body>
+<div>
+    <h1>Carofly Game SpringBoot(SSN) Server</h1>
+    <ul id="notifications"></ul>
+    <p>msg:</p>
+    <p>msdate:</p>
+    <p>msgtime:</p>
+    <script>
+        const eventSource = new EventSource("http://localhost:8080/notifications");
+
+        eventSource.onopen = () => {
+            console.log("Connected To Carofly Game SSN Server");
+        };
+
+        eventSource.onmessage = (event) => {
+            console.log("Message received:", event.data);
+            const listItem = document.createElement("li");
+            listItem.textContent = event.data;
+            document.getElementById("notifications").appendChild(listItem);
+        };
+
+        eventSource.onerror = (err) => {
+            console.error("SSE connection error:", err);
+        };
+    </script>
+</body>
+</div>
+
+
+</html>
