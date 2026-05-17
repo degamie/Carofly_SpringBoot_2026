@@ -3,9 +3,10 @@ package com.carofly.game_server.controller;
 
 //import com.carofly.game_server.entity.Player;
 //import com.carofly.game_server.service.PlayerService;
-import com.carofly.game_server.entity.Notifications;
-import com.carofly.game_server.entity.Player;
-import com.carofly.game_server.service.NotificationServices;
+//import com.carofly.game_server.entity.Notifications;
+//import com.carofly.game_server.entity.Player;
+//import com.carofly.game_server.service.NotificationServices;
+import com.google.api.services.storage.model.Notifications;
 import org.aspectj.weaver.ast.Not;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -26,15 +27,20 @@ import java.util.List;
 @RequestMapping("notificatiions")
 
 public class NotificationController {
+    @Autowired
+    public NotificationServices notificationServices;
     @PostMapping("/save/msgId")
     public List<Notifications>  setByMsgId(String msgId){
         return notificationServices.setByMsgId(msgId);
     }
 
-    @Autowired
-    public NotificationServices notificationServices;
+
     public String msg;
     public Notifications notifications=new Notifications();
+    @GetMapping("/msgname")
+    public List<Notifications> getBymsgId(String msgname){
+        return notificationServices.getbymsgName(msgname);
+    }
     @GetMapping("/msgId")
     public List<Notifications> getBymsgId(String msgId){
         return notificationServices.getBymsgId(msgId);
