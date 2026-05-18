@@ -1,4 +1,4 @@
-//WID(17/5/2026)(Sarthak Mittal)(Gameolight)#1,1.1.1,1/1.1
+//WID(18/5/2026)(Sarthak Mittal)(Gameolight)#1,1.1.1,1/1.1.,1
 package com.carofly.game_server.config;
 
 import com.google.auth.oauth2.GoogleCredentials;
@@ -54,6 +54,10 @@ public class FireBaseConfig {
         }
 
         return FirebaseDatabase.getInstance();
+    }
+    @Bean
+    public FireStore firestore(FireBaseApp fireBaseApp){
+        return FirestoreClient.getFireStore(fireBaseApp);
     }
 
 
