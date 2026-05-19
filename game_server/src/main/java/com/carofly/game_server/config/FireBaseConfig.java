@@ -17,6 +17,7 @@ import java.io.IOException;
 
 @Configuration
 public class FireBaseConfig {
+    public  void setFirebasedbref(FireBaseDataBaseReference firebasedbref){this.firebasedbref=firebasedbref;}//Binding firebaseDb in App
     public FirebaseApp initialize() throws IOException {
         FileInputStream serviceAccount =
                 new FileInputStream("src/main/resources/serviceAccountKey.json");
