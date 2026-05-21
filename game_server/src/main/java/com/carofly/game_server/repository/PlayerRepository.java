@@ -1,4 +1,4 @@
-//WID(19/05/2026)(Sarthak Mittal)(DegamieSign)#1.1,1.1,1s.1.1.1.1.1.1/1.1.1.1.1.1
+//WID(21/05/2026)(Sarthak Mittal)(DegamieSign)#1.1,1.1,1s.1.1.1.1.1.1/1.1.1.1.1.1
 package com.carofly.game_server.repository;
 
 //import com.carofly.game_server.entity.Player;
@@ -17,9 +17,10 @@ import java.util.List;
 
 @Repository
 public interface  PlayerRepository extends JpaRepository<String, Player> {
+    public List<Player>findPlayeremail( String Playeremail);
     public List<Player>saveByPlayerSerialNum(Integer playerSerialNum);
     public List<Player>findByPlayerSerialNum(Integer playerSerialNum);
-    public Pageable saveByPlayer(@RequestBody Player player,Pageable pageable);
+//    public Pageable saveByPlayer(@RequestBody Player player,Pageable pageable);
     Page<Player> findByPlayers(String player, Pageable pageable);
     public List<Player>saveByplayerloginTime(Time logintime);
     public List<Player>updateByPlayerId(String PlayerId);

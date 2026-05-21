@@ -30,28 +30,30 @@ public class AsyncConfigLoader {
 
         return asyncConfigLoader;
     }
-    public void updateByAsyncConfigLoader(AsyncConfigLoader asyncConfigLoader){
-        getAsyncConfigLoader(asyncConfigLoader)+setAsyncConfigLoader(asyncConfigLoader)+1;
-    }
-
-
 
     public void setAsyncConfigLoader(AsyncConfigLoader asyncConfigLoader){this.asyncConfigLoader=asyncConfigLoader;}//binding AsyncConfig Loader in App
     public AsyncConfigLoader asyncConfigLoader;
-    public AsyncConfigLoader(ThreadPoolTaskExecutor Asyncexecutor) {
-        this.Asyncexecutor=Asyncexecutor;
-    }
+//    public void updateByAsyncConfigLoader(AsyncConfigLoader asyncConfigLoader){
+//        getAsyncConfigLoader(asyncConfigLoader)+setAsyncConfigLoader(asyncConfigLoader)+1;
+//    }
 
-    public ThreadPoolTaskExecutor getAsyncexecutor(Object o) {
-        return Asyncexecutor;
-    }
 
-    public void setExecutor(ThreadPoolTaskExecutor executor){this.executor=executor;}//Binding Executor in App
-    public static ThreadPoolTaskExecutor executor;
-    public void existsByexecutor(ThreadPoolTaskExecutor executor){
-        if(executor.isRunning()!=false)getAsyncexecutor(null);
-        else getAsyncexecutor(null);
-    }
+
 
 
 }
+//    public AsyncConfigLoader(ThreadPoolTaskExecutor Asyncexecutor) {
+//        this.Asyncexecutor=Asyncexecutor;
+//    }
+//
+//    public ThreadPoolTaskExecutor getAsyncexecutor(Object o) {
+//        return Asyncexecutor;
+//    }
+//
+//    public void setExecutor(ThreadPoolTaskExecutor executor){this.executor=executor;}//Binding Executor in App
+//    public static ThreadPoolTaskExecutor executor;
+//    public void existsByexecutor(ThreadPoolTaskExecutor executor){
+//        if(executor.isRunning()!=false)getAsyncexecutor(null);
+//        else getAsyncexecutor(null);
+//    }
+

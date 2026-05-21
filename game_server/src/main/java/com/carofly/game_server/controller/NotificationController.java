@@ -37,18 +37,18 @@ public class NotificationController {
 
     public String msg;
     public Notifications notifications=new Notifications();
-    @GetMapping("/msgname")
-    public List<Notifications> getBymsgId(String msgname){
-        return notificationServices.getbymsgName(msgname);
-    }
-    @GetMapping("/msgId")
-    public List<Notifications> getBymsgId(String msgId){
-        return notificationServices.getBymsgId(msgId);
-    }
-
-    public List<Notifications> findBymsg(String msg){
-        return notificationServices.findBymsg(msg);
-    }
+//    @GetMapping("/msgname")
+//    public List<Notifications> getBymsgId(String msgname){
+//        return notificationServices.getbymsgName(msgname);
+//    }
+//    @GetMapping("/msgId")
+//    public List<Notifications> getBymsgId(String msgId){
+//        return notificationServices.getBymsgId(msgId);
+////    }
+//
+//    public List<Notifications> findBymsg(String msg){
+//        return notificationServices.findBymsg(msg);
+//    }
 
     public final Sinks.Many<Notifications> notificationlist= (Sinks.Many<Notifications>) Sinks.many().multicast();
     @GetMapping("/send")
