@@ -1,4 +1,4 @@
-//WID(12/5/2026)(Sarthak Mittal)(GameoLight)#1.1/1s.1.1.1.1,1.1.1.1.1
+//WID(12/5/2026)(Sarthak Mittal)(DegamieSign)#1.1/1s.1.1.1.1,1.1.1.1.1
 package com.carofly.game_server.config;
 
 import org.springframework.context.annotation.Bean;

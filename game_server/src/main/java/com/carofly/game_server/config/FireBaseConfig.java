@@ -1,4 +1,4 @@
-//WID(18/5/2026)(Sarthak Mittal)(Gameolight)#1,1.1.1,1/1.1.,1
+//WID(18/5/2026)(Sarthak Mittal)(DegamieSign)#1,1.1.1,1/1.1.,1
 package com.carofly.game_server.config;
 
 import com.google.auth.oauth2.GoogleCredentials;

@@ -1,4 +1,4 @@
-//WID(22/04/2026)(Sarthak Mittal(GameoLight)
+//WID(21/05/2026)(Sarthak Mittal(DegamieSign)#1
 package com.carofly.game_server.entity;
 
 import jakarta.persistence.Column;
@@ -33,6 +33,8 @@ public class Player {
     public SimpleDateFormat playercrdate;
     @Column(name="logoutdate",unique = false)
     public LocalTime  playermodifieddate;
+    @Column(name="playeremail",unique = false)
+    public LocalTime  email;
 
 
 }
