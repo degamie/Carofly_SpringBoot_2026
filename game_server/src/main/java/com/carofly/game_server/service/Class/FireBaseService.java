@@ -1,31 +1,50 @@
-//WID)(21/5/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.2.1
+//WID)(22/5/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.2.1.1
 package com.carofly.game_server.service.Class;
 
-//import com.carofly.game_server.entity.Player;
-//import com.carofly.game_server.repository.PlayerRepository;
+import com.google.cloud.firestore.Firestore;
 import com.carofly.game_server.entity.Player;
 import com.carofly.game_server.repository.PlayerRepository;
 import com.carofly.game_server.service.interfaces.FireBaseServiceinterface;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
+import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import jdk.jshell.spi.ExecutionControl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
 //import com.carofly.game_server.service.interfaces.FireBaseService;
 
 @Component
 @Service
 public class FireBaseService implements FireBaseServiceinterface{
-    public FireStore db;
+    public Firestore db;
     public FirebaseDatabase database;
     public DatabaseReference dbref;
+    @Override//Saveplayer() methdo imppl
+    public String savePlayer(String playerId, String playerName, String playeremail) throws ExecutionException, InterruptedException {
+        Map<String,Object> docData=new HashMap<>();//Docdata's HasMap declare
+        docData.put("playername",playerName);//putting Playername in DocData
+        docData.put("playeremail",playeremail);//putting Playername  FireStrore's Dynamic DB's Document Data's Reterieval
+        ApiFuture<WriteResult> collectionsApiFuture = db.collection("players").document(playerId).set(docData);//Collecting Player's Binded Data
+
+        return "Document created successfully at: " + collectionsApiFuture.get().getUpdateTime();//Printing Player's SavedData in output
+    }
+
+    @Override//To be Impl
+    public String updateByPlayer(String playerId, String playerName, String playeremail) {
+        return "";
+    }
+
     @Override
     public String getPlayers(String playerId)throws ExecutionControl.UserException,InterruptedException{
-        DocumentReference documentReference=dbref.collection("players").document("playerdId");
+        DocumentReference documentReference=db.collection("players").document("playerdId");
         ApiFuture<DocumentSnapshot> future = documentReference.get();
         DocumentSnapshot document = future.get();
 
@@ -36,10 +55,7 @@ public class FireBaseService implements FireBaseServiceinterface{
         }
     }
 
-    @Override
-    public String savePlayer(String playerId, String playerName, String playeremail) {
-        return "Player Data'S FirebaseDB's (To be IMpl)";
-    }
+
 
     public   void setDatabase(FirebaseDatabase database){this.database=database;}//Binding FireBaseDataBase in App
     @Autowired

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.carofly.game_server.entity.Player;
 
+import java.util.concurrent.ExecutionException;
+
 
 //import java.text.SimpleDateFormat;
 //import java.util.List;
@@ -20,7 +22,7 @@ public class PlayerController {
     @Autowired
     public PlayerService playerService;
     @PostMapping("/saveBy/{players}")
-    public String getPlayers(@RequestParam String playerID,@RequestParam String playerName,@RequestParam String playeremail){
+    public String getPlayers(@RequestParam String playerID,@RequestParam String playerName,@RequestParam String playeremail) throws ExecutionException, InterruptedException {
         return fireBaseService.savePlayer(playerID,playerName,playeremail);}
 
 
