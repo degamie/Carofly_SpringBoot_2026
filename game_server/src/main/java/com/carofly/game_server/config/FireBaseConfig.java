@@ -1,4 +1,4 @@
-//WID(18/5/2026)(Sarthak Mittal)(DegamieSign)#1,1.1.1,1/1.1.,1
+//WID(23/5/2026)(Sarthak Mittal)(DegamieSign)#1,1.1.1,1/1.1.,1.1
 package com.carofly.game_server.config;
 
 import com.google.auth.oauth2.GoogleCredentials;
@@ -21,7 +21,7 @@ import java.io.InputStream;
 
 @Configuration
 public class FireBaseConfig {
-//    @Value("${firebase.config.path}")
+    public void setResource(Resource firebaseconfig){this.firebaseconfig=firebaseconfig;}//Binding FireBaseConfig Resource in App
     public Resource firebaseconfig;
     @PostConstruct
     public void initialize() {

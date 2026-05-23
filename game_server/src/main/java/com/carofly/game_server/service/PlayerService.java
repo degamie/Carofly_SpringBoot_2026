@@ -1,4 +1,4 @@
-//WID(19/5/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1.1.1.1.1.1/1
+//WID(23/5/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1.1.1.1.1.1/1.1
 package com.carofly.game_server.service;
 
 //import com.carofly.game_server.entity.Player;
@@ -16,7 +16,7 @@ import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.List;
-//@Transactional(value = commit)
+@Transactional
 @Component
 @Service
 public class PlayerService {
