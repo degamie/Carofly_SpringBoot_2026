@@ -1,4 +1,4 @@
-//WID)(22/5/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.2.1.1
+//WID)(22/5/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.2.1.1.1
 package com.carofly.game_server.service.Class;
 
 import com.google.cloud.firestore.Firestore;
@@ -27,6 +27,14 @@ public class FireBaseService implements FireBaseServiceinterface{
     public Firestore db;
     public FirebaseDatabase database;
     public DatabaseReference dbref;
+    @Override//To be Impl
+    public String updateByPlayer(String playerId, String playerName, String playeremail) {
+        DocumentReference docRef=db.collection("players").document("playerId");
+
+        return "Updating Player's Data in FireStore's Document dynamically;";
+    }
+
+
     @Override//Saveplayer() methdo imppl
     public String savePlayer(String playerId, String playerName, String playeremail) throws ExecutionException, InterruptedException {
         Map<String,Object> docData=new HashMap<>();//Docdata's HasMap declare
@@ -37,10 +45,7 @@ public class FireBaseService implements FireBaseServiceinterface{
         return "Document created successfully at: " + collectionsApiFuture.get().getUpdateTime();//Printing Player's SavedData in output
     }
 
-    @Override//To be Impl
-    public String updateByPlayer(String playerId, String playerName, String playeremail) {
-        return "";
-    }
+
 
     @Override
     public String getPlayers(String playerId)throws ExecutionControl.UserException,InterruptedException{
