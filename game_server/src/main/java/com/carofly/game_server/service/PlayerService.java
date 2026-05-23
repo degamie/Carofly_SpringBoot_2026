@@ -41,19 +41,11 @@ public class PlayerService {
 
     public PlayerRepository getPlayerRepository(PlayerRepository playerRepository) {
         return playerRepository;
-    }//Fetching PlayerRepository in App
-
-    public void updateBymodifiedDate(SimpleDateFormat modifiedDate) {
-        switch (getBymodifieddate(modifiedDate) + setmodifiedDate(modifiedDate) + 1) {
-            default ->
-                    throw new IllegalStateException("Unexpected value: " + getBymodifieddate(modifiedDate) + setmodifiedDate(modifiedDate) + 1);
-        }
     }
-
     public List<Player> setmodifiedDate(SimpleDateFormat modifiedDate) {
         return playerRepository.saveBymodifiedDate(modifiedDate);
     }
-@Async("taskExecutor")
+    @Async("taskExecutor")
     public List<Player> setPlayerlogindate(SimpleDateFormat logindate) {
         return playerRepository.saveBylogindate(logindate);
     }
@@ -79,4 +71,14 @@ public class PlayerService {
     }
 
 }
+
+//Fetching PlayerRepository in App
+
+//    public void updateBymodifiedDate(SimpleDateFormat modifiedDate) {
+//        switch (getBymodifieddate(modifiedDate) + setmodifiedDate(modifiedDate) + 1) {
+//            default ->
+//                    throw new IllegalStateException("Unexpected value: " + getBymodifieddate(modifiedDate) + setmodifiedDate(modifiedDate) + 1);
+//        }
+//    }
+
 

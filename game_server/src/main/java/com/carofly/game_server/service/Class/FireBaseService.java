@@ -1,4 +1,4 @@
-//WID)(22/5/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.2.1.1.1
+//WID)(23/5/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.2.1.1.1.1
 package com.carofly.game_server.service.Class;
 
 import com.google.cloud.firestore.Firestore;
@@ -24,6 +24,7 @@ import java.util.concurrent.ExecutionException;
 @Component
 @Service
 public class FireBaseService implements FireBaseServiceinterface{
+    @Autowired
     public Firestore db;
     public FirebaseDatabase database;
     public DatabaseReference dbref;
@@ -48,7 +49,7 @@ public class FireBaseService implements FireBaseServiceinterface{
 
 
     @Override
-    public String getPlayers(String playerId)throws ExecutionControl.UserException,InterruptedException{
+    public String getPlayers(String playerId) throws ExecutionControl.UserException, InterruptedException, ExecutionException {
         DocumentReference documentReference=db.collection("players").document("playerdId");
         ApiFuture<DocumentSnapshot> future = documentReference.get();
         DocumentSnapshot document = future.get();

@@ -16,7 +16,7 @@ import java.time.LocalTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="PLAYER")
+//@Table(name="PLAYER")
 public class Player {
     @Id
   @Column(name="playerid",unique = true)

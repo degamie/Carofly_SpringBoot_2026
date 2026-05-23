@@ -2,9 +2,12 @@
 package com.carofly.game_server.config;
 
 import com.google.auth.oauth2.GoogleCredentials;
+import com.google.cloud.firestore.Firestore;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
+import com.google.firebase.cloud.FirestoreClient;
 import com.google.firebase.database.FirebaseDatabase;
+import jakarta.annotation.PostConstruct;
 import lombok.Value;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -13,24 +16,55 @@ import org.springframework.core.io.Resource;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 
 @Configuration
 public class FireBaseConfig {
-    public  void setFirebasedbref(FireBaseDataBaseReference firebasedbref){this.firebasedbref=firebasedbref;}//Binding firebaseDb in App
-    public FirebaseApp initialize() throws IOException {
-        FileInputStream serviceAccount =
-                new FileInputStream("src/main/resources/serviceAccountKey.json");
+//    @Value("${firebase.config.path}")
+    public Resource firebaseconfig;
+    @PostConstruct
+    public void initialize() {
+        try {
+            if (firebaseconfig == null || !firebaseconfig.exists()) {
+                throw new IllegalArgumentException("Firebase configuration file could not be found at the specified path!");
+            }
 
-        FirebaseOptions options = FirebaseOptions.builder()
-                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                .setDatabaseUrl("https://<your-database-id>.firebaseio.com")
-                .build();
+            InputStream serviceAccount = firebaseconfig.getInputStream();
 
-        return FirebaseApp.initializeApp(options);
+            FirebaseOptions options = FirebaseOptions.builder()
+                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                    .build();
+
+            if (FirebaseApp.getApps().isEmpty()) {
+                FirebaseApp.initializeApp(options);
+            }
+        } catch (IOException e) {
+            // In production, consider utilizing a proper logging framework (e.g., Slf4j) here
+            e.printStackTrace();
+        }
     }
+    @Bean
+    public Firestore firestore(FirebaseApp fireBaseApp){
+        return FirestoreClient.getFirestore(fireBaseApp);
+    }
+
+
     @Autowired
-    public FireBaseDataBaseReference firebasedbref;
+    public FirebaseDatabase firebasedbref;
+    public  void setFirebasedbref(FirebaseDatabase firebasedbref){this.firebasedbref=firebasedbref;}//Binding firebaseDb in App
+//    public FirebaseApp initialize() throws IOException {
+//        FileInputStream serviceAccount =
+//                new FileInputStream("path/to/serviceAccountKey.json");
+//
+//        FirebaseOptions options = FirebaseOptions.builder()
+//                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+//                .setDatabaseUrl("firebase-adminsdk-fbsvc@carofly-714e0.iam.gserviceaccount.com")
+////                .setDatabaseUrl("https://<your-database-id>.firebaseio.com")
+//                .build();
+//        return FirebaseApp.initializeApp(options);
+//    }
+
 
     public Resource getGcpconfig(Resource gcpconfig) {
         return gcpconfig;
@@ -56,11 +90,6 @@ public class FireBaseConfig {
 
         return FirebaseDatabase.getInstance();
     }
-    @Bean
-    public FireStore firestore(FireBaseApp fireBaseApp){
-        return FirestoreClient.getFireStore(fireBaseApp);
-    }
-
 
 }
 
