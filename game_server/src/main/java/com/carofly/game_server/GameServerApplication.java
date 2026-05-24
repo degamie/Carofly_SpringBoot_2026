@@ -1,6 +1,7 @@
 package com.carofly.game_server;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -8,10 +9,15 @@ import org.springframework.scheduling.annotation.EnableAsync;
 public class GameServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GameServerApplication.class, args);
+        SpringApplication gameapp=new SpringApplication(GameServerApplication.class);
+        gameapp.setWebApplicationType(WebApplicationType.NONE);
+        gameapp.run(args);
     }
 
 }
+
+//        gameapp.run(GameServerApplication.class, args);
+
 
 //@EnableAsync
 //

@@ -1,32 +1,45 @@
-//WID(21/05/2026)(Sarthak Mittal)(DegamieSign)#1 ,1.1.1.1.1
+//WID(24/05/2026)(Sarthak Mittal)(DegamieSign)#1 ,1.1.1.1.1.1
 package com.carofly.game_server.controller;
-import com.carofly.game_server.service.Class.FireBaseService;
+//import com.carofly.game_server.service.Class.FireBaseService;
 import com.carofly.game_server.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.carofly.game_server.entity.Player;
-
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 
 //import java.text.SimpleDateFormat;
-//import java.util.List;
 
-@RestController
+
+//@RestController
 @Controller
-@RequestMapping("/carolfy_SB_API/player")
+@RequestMapping("/carolfy_SB_API")
 public class PlayerController {
     @Autowired
-    public FireBaseService fireBaseService;
-    @Autowired
     public PlayerService playerService;
-    @PostMapping("/saveBy/{players}")
-    public String getPlayers(@RequestParam String playerID,@RequestParam String playerName,@RequestParam String playeremail) throws ExecutionException, InterruptedException {
-        return fireBaseService.savePlayer(playerID,playerName,playeremail);}
-
-
 }
+//    @GetMapping("/playerId")
+//    public List<Player> getByplayerId(String playerId) {
+//        return playerService.getplayerId(playerId);
+//    }
+
+//}
+    //    @Autowired
+//    public FireBaseService fireBaseService;
+
+//    @GetMapping("/playerName")
+//    public List<Player> getByplayername(String playerName){
+//        return playerService.getByplayername(playerName);
+//    }
+//}
+//    @PostMapping("/saveBy/{players}")
+//    public String getPlayers(@RequestParam String playerID,@RequestParam String playerName,@RequestParam String playeremail) throws ExecutionException, InterruptedException {
+//        return fireBaseService.savePlayer(playerID,playerName,playeremail);}
+
+
+
 //@PostMapping("/saveBy/modifiedDate")
 //    public List<Player> setmodifiedDate(SimpleDateFormat modifiedDate){
 //        return playerService.setmodifiedDate(modifiedDate);
@@ -43,8 +56,4 @@ public class PlayerController {
 //    @GetMapping("/score")
 //    public List<Player>getBYPlayerScore(int score){
 //        return playerService.getBYPlayerScore(score);
-//    }
-//    @GetMapping("/playerName")
-//    public List<Player> getByplayername(String playerName){
-//        return playerService.getByplayername(playerName);
 //    }
