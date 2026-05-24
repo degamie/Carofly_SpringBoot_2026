@@ -1,4 +1,4 @@
-//WID(24/05/2026)(Sarthak Mittal)(DegameiSign)#1
+//WID(24/05/2026)(Sarthak Mittal)(DegameiSign)#1.1
 package com.carofly.game_server.entity;
 
 import jakarta.persistence.*;
@@ -26,5 +26,7 @@ public class Notification {
     public DateTimeFormatter msgtime;
     @Column(unique = false,nullable = false)
     public String msgName;
+    @Column(unique = false,nullable = false)
+    public String msgAlloc;
 
 }
