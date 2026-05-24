@@ -2,14 +2,11 @@
 package com.carofly.game_server.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
-
+@Data
 @Getter
 @Setter
 @AllArgsConstructor
@@ -18,7 +15,7 @@ import java.time.LocalTime;
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name="playerid",unique = true)
+  @Column(name="playerid",unique = true,nullable = false)
     public String playerId;
 
 
