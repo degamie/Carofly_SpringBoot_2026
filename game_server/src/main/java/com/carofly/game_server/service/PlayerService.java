@@ -22,6 +22,12 @@ import java.util.List;
 public class PlayerService {
     @Autowired
     public PlayerRepository playerRepository;
+
+//    @Cacheable(value = "Players", key = "#playername")
+    public List<Player> getByplayername(String playername) {
+        return playerRepository.findByplayername(playername);
+    }
+
 }
 //    @Cacheable(value = "Players", key = "#playerId")
 //    public List<Player> getplayerId(String playerId) {
@@ -64,11 +70,6 @@ public class PlayerService {
 //    }
 
 
-
-//    @Cacheable(value = "Players", key = "#playerName")
-//    public List<Player> getByplayername(String playerName) {
-//        return playerRepository.findByPlayerName(playerName);
-//    }
 
 
 

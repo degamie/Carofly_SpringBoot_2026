@@ -11,17 +11,17 @@ import java.time.LocalTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 //@Table(name="PLAYER")
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name="playerid",unique = true,nullable = false)
     public String playerId;
-
-
+    @Column(name="playername",unique = true)
+    public String playername;
 }
-//    @Column(name="playername",unique = true)
-//    public String playername;
+
 ////    @Column(name="score",unique = false)
 //    public  int score;
 ////    @Column(name="logintime",unique = false)

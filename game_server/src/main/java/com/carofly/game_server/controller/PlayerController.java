@@ -1,4 +1,4 @@
-//WID(24/05/2026)(Sarthak Mittal)(DegamieSign)#1 ,1.1.1.1.1.1
+//WID(25/05/2026)(Sarthak Mittal)(DegamieSign)#1 ,1.1.1.1.1.1.1
 package com.carofly.game_server.controller;
 //import com.carofly.game_server.service.Class.FireBaseService;
 import com.carofly.game_server.service.PlayerService;
@@ -19,6 +19,10 @@ import java.util.concurrent.ExecutionException;
 public class PlayerController {
     @Autowired
     public PlayerService playerService;
+    @GetMapping("/playername")
+    public List<Player> getByplayername(String playername){
+        return playerService.getByplayername(playername);
+    }
 }
 //    @GetMapping("/playerId")
 //    public List<Player> getByplayerId(String playerId) {
@@ -29,10 +33,7 @@ public class PlayerController {
     //    @Autowired
 //    public FireBaseService fireBaseService;
 
-//    @GetMapping("/playerName")
-//    public List<Player> getByplayername(String playerName){
-//        return playerService.getByplayername(playerName);
-//    }
+
 //}
 //    @PostMapping("/saveBy/{players}")
 //    public String getPlayers(@RequestParam String playerID,@RequestParam String playerName,@RequestParam String playeremail) throws ExecutionException, InterruptedException {

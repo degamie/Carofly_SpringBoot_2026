@@ -17,8 +17,11 @@ import java.util.List;
 
 @Repository
 public interface  PlayerRepository extends JpaRepository<Player,String> {
+        public List<Player>findByplayername(String playername);}
+
 //    public List<Player> findByplayerid(String playerid);
-}
+//        public List<Player>saveByplayerId(String playerId);
+
 //    public List<Player>findPlayeremail( String Playeremail);
 //    public List<Player>saveByPlayerSerialNum(Integer playerSerialNum);
 //    public List<Player>findByPlayerSerialNum(Integer playerSerialNum);
@@ -36,7 +39,7 @@ public interface  PlayerRepository extends JpaRepository<Player,String> {
 //    public List<Player> findBymodifieddate(SimpleDateFormat modifieddate);
 //    public List<Player> findByplayerlogoutdate(SimpleDateFormat logoutdate);
 //
-//    public List<Player>saveByplayerId(String playerId);
+
 //    public List<Player>findByPlayerloginTime(LocalTime loginTime);
 //    public List<Player>findBYPlayerScore(int score);
 //    public List<Player>findByplayerCrtDate(SimpleDateFormat logindate);
