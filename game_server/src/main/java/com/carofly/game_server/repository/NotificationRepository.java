@@ -1,13 +1,16 @@
 //WID(25/5/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1/1.1.1.1.1.1.1
 package com.carofly.game_server.repository;
-import javax.management.Notification;
+import com.carofly.game_server.entity.Notification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 
-//import com.carofly.game_server.entity.Notification
+
+//import javax.management.Notification;
+
+
 //import com.google.api.services.storage.model.Notification;
 
 
