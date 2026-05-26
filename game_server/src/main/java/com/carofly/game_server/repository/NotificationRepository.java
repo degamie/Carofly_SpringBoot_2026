@@ -1,4 +1,4 @@
-//WID(25/5/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1/1.1.1.1.1.1
+//WID(25/5/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1/1.1.1.1.1.1.1
 package com.carofly.game_server.repository;
 import javax.management.Notification;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,6 +14,7 @@ import java.util.List;
 @Component
 @Repository
 public interface NotificationRepository extends JpaRepository<Notification,String> {
+    public List<Notification>saveBymsgname(String msgName);
     public List<Notification>findBymsgacknow(String msgacknow);
     public List<Notification>findByMsgAllocation(String msgallocation);
     public void saveByMsgName(String msgName);
