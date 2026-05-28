@@ -6,6 +6,7 @@ package com.carofly.game_server.controller;
 //import com.carofly.game_server.entity.Notifications;
 //import com.carofly.game_server.entity.Player;
 //import com.carofly.game_server.service.NotificationServices;
+import com.carofly.game_server.entity.Notifications;
 import com.carofly.game_server.service.NotificationServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +23,7 @@ public class NotificationController {
     @Autowired
     public NotificationServices notificationServices;
     @GetMapping("/msgname")
-    public List<Notification> getbymsgName(@RequestParam String msgName, @RequestParam String playerName){
+    public List<Notifications> getbymsgName(@RequestParam String msgName, @RequestParam String playerName){
         return notificationServices.getbymsgName(msgName,playerName);
     }
 }

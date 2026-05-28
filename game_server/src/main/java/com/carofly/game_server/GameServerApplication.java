@@ -4,10 +4,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
+@EnableAsync
 @SpringBootApplication
 public class GameServerApplication {
-
+@Async("taskExecutor")
     public static void main(String[] args) {
         SpringApplication gameapp=new SpringApplication(GameServerApplication.class);
         gameapp.setWebApplicationType(WebApplicationType.NONE);

@@ -1,7 +1,7 @@
 //WID(17/5/2026)(Sarthak Mittal)(DegamieSign)#1.1
 package com.carofly.game_server.service;
 
-import com.carofly.game_server.entity.Notification;
+import com.carofly.game_server.entity.Notifications;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -35,7 +35,7 @@ public class NotificationServices {
 
     Thread thread = new Thread();
 
-    public List<Notification> getbymsgName(String msgName, String playername) {
+    public List<Notifications> getbymsgName(String msgName, String playername) {
         String matchedPlayers = players.stream()
                 .filter(name -> name.equalsIgnoreCase(playername)) // or .matches() if using regex
                 .sorted()
