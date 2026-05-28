@@ -1,40 +1,33 @@
-//WID(17/5/2026)(Sarthak Mittal)(DegamieSign)#1.1
+//WID(28/5/2026)(Sarthak Mittal)(DegamieSign)#1.1.1
 package com.carofly.game_server.service;
 
 import com.carofly.game_server.entity.Notifications;
 import org.springframework.beans.factory.annotation.Autowired;
-
-
-//import com.carofly.game_server.entity.Notifications;
+import java.util.ArrayList;
 import com.carofly.game_server.repository.*;
 import org.springframework.stereotype.Service;
-
-//import javax.management.Notification;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+//import javax.management.Notification;
+
+//import java.util.List;
+
+//import java.util.stream.Collectors;
 
 @Service
 public class NotificationServices {
     ArrayList<String> players = new ArrayList<>();
-
-
     public String playername;
     @Autowired
     public NotificationRepository repository;
-
     @Autowired
     public PlayerService playerService;
 
     Logger logger = null;
-
     public NotificationServices() {
     }
-//        logger = new Logger();
-
     Thread thread = new Thread();
-
     public List<Notifications> getbymsgName(String msgName, String playername) {
         String matchedPlayers = players.stream()
                 .filter(name -> name.equalsIgnoreCase(playername)) // or .matches() if using regex
