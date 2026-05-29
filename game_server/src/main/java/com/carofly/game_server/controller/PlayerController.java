@@ -1,7 +1,8 @@
-//WID(25/05/2026)(Sarthak Mittal)(DegamieSign)#1 ,1.1.1.1.1.1.1
+//WID(29/05/2026)(Sarthak Mittal)(DegamieSign)#1 ,1.1.1.1.1.1.1.1
 package com.carofly.game_server.controller;
 //import com.carofly.game_server.service.Class.FireBaseService;
 import com.carofly.game_server.service.PlayerService;
+import com.networknt.schema.format.TimeFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -13,16 +14,21 @@ import java.util.concurrent.ExecutionException;
 //import java.text.SimpleDateFormat;
 
 
-//@RestController
+@RestController
 @Controller
 @RequestMapping("/carolfy_SB_API")
 public class PlayerController {
     @Autowired
     public PlayerService playerService;
+    @GetMapping("/playerflightIime")
+    public List<Player> getByplayerflightTime(TimeFormat playerflightIime){
+        return playerService.getByplayerflightTime(playerflightIime);
+    }
     @GetMapping("/playername")
     public List<Player> getByplayername(String playername){
         return playerService.getByplayername(playername);
     }
+
 }
 //    @GetMapping("/playerId")
 //    public List<Player> getByplayerId(String playerId) {

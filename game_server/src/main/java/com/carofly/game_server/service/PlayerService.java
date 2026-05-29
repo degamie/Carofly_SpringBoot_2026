@@ -4,6 +4,7 @@ package com.carofly.game_server.service;
 //import com.carofly.game_server.entity.Player;
 import com.carofly.game_server.entity.Player;
 import com.carofly.game_server.repository.PlayerRepository;
+import com.networknt.schema.format.TimeFormat;
 import jakarta.transaction.Transaction;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,10 @@ public class PlayerService {
     public final PlayerRepository playerRepository;
     public PlayerService(PlayerRepository playerRepository){
         this.playerRepository =playerRepository;
+    }
+
+    public List<Player> getByplayerflightTime(TimeFormat playerflightIime){
+        return playerRepository.findByplayerflightTime(playerflightIime);
     }
 
 //    @Cacheable(value = "Players", key = "#playername")

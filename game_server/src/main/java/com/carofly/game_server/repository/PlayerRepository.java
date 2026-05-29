@@ -3,6 +3,7 @@ package com.carofly.game_server.repository;
 
 //import com.carofly.game_server.entity.Player;
 import com.carofly.game_server.entity.Player;
+import com.networknt.schema.format.TimeFormat;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,7 +18,9 @@ import java.util.List;
 
 @Repository
 public interface  PlayerRepository extends JpaRepository<Player,String> {
-        public List<Player>findByplayername(String playername);}
+    public List<Player>findByplayerflightTime(TimeFormat playerFlightTime);
+    public List<Player>findByplayername(String playername);
+}
 
 //    public List<Player> findByplayerid(String playerid);
 //        public List<Player>saveByplayerId(String playerId);
