@@ -1,4 +1,4 @@
-package com.carofly.game_server.config;
+    package com.carofly.game_server.config;
 
 public class JwtUtil {
     // Must be a Base64-encoded string representing at least 256 bits (32 bytes)
