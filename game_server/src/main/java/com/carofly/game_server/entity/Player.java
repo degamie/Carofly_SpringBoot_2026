@@ -1,6 +1,7 @@
-//WID(24/05/2026)(Sarthak Mittal(DegamieSign)#1.1
+//WID(29/05/2026)(Sarthak Mittal(DegamieSign)#1.1.1
 package com.carofly.game_server.entity;
 
+import com.networknt.schema.format.TimeFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,8 +19,10 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name="playerid",unique = true,nullable = false)
     public String playerId;
-    @Column(name="playername",unique = true)
+    @Column(name="playername",unique = false,nullable=true)
     public String playername;
+    @Column(name="flighttime",unique = false,nullable=true)
+    public TimeFormat playerFlightTime;
 }
 
 ////    @Column(name="score",unique = false)
