@@ -1,4 +1,4 @@
-//WID(29/5/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1.1.1.1.1.1/1.1.1.1
+//WID(30/5/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1.1.1.1.1.1/1.1.1.1.1
 package com.carofly.game_server.service;
 
 //import com.carofly.game_server.entity.Player;
@@ -26,6 +26,7 @@ public class PlayerService {
     public PlayerService(PlayerRepository playerRepository){
         this.playerRepository =playerRepository;
     }
+    @Async("taskExecutor")
 
     public List<Player> getByplayerflightTime(TimeFormat playerflightIime){
         return playerRepository.findByplayerflightTime(playerflightIime);
