@@ -1,4 +1,4 @@
-//WID(29/5/2026)(Sarthak Mittal)(DegamieSign#1)
+//WID(30/5/2026)(Sarthak Mittal)(DegamieSign#1),1
 package com.carofly.game_server.config;
 
 import jakarta.servlet.FilterChain;
@@ -21,7 +21,7 @@ public class JwtAuthFilter   extends OncePerRequestFilter{
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-
+        final String authheader=request.getHeader("Authorization");
     }
 
 
