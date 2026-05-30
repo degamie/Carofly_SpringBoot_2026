@@ -1,4 +1,4 @@
-//WID(30/5/2026)(Sarthak Mittal)(DegamieSign#1),1
+//WID(30/5/2026)(Sarthak Mittal)(DegamieSign#1),1.1
 package com.carofly.game_server.config;
 
 import jakarta.servlet.FilterChain;
@@ -13,7 +13,8 @@ import java.io.IOException;
 
 @Configuration
 public class JwtAuthFilter   extends OncePerRequestFilter{
-    public final JwtUtil jwtUtil;public final UserDetailsService userDetailsService;
+    public final JwtUtil jwtUtil;public UserDetailsService userDetailsService;
+    public void setUserDetailsService(UserDetailsService userDetailsService){this.userDetailsService=userDetailsService;}//Bidning UserDetialsServeice in App
     public JwtAuthFilter(JwtUtil jwtUtil, UserDetailsService userDetailsService) {
     this.jwtUtil = jwtUtil;
     this.userDetailsService = userDetailsService;
