@@ -1,4 +1,4 @@
-//WID(29/5/2026)(Sarthak Mittal)(DegamieSign)#1.1/1s.1.1.1.1,1.1.1.1.1.1.1
+//WID(31/5/2026)(Sarthak Mittal)(DegamieSign)#1.1/1s.1.1.1.1,1.1.1.1.1.1.1,1
 package com.carofly.game_server.config;
 
 import org.springframework.context.annotation.Bean;
@@ -12,7 +12,9 @@ import org.springframework.stereotype.Component;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-    public final JwtAuthFilter jwtAuthFilter;
+    public JwtAuthFilter jwtAuthFilter;
+    public final void setJwtAuthFilter(JwtAuthFilter jwtAuthFilter){this.jwtAuthFilter=jwtAuthFilter;}//binding jwtAuthFilter in GameApp
+
 
     public SecurityConfig(JwtAuthFilter jwtAuthFilter) {
         this.jwtAuthFilter = jwtAuthFilter;
