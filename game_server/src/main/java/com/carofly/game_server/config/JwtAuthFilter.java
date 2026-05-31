@@ -1,6 +1,7 @@
-//WID(30/5/2026)(Sarthak Mittal)(DegamieSign#1),1.1
+//WID(31/5/2026)(Sarthak Mittal)(DegamieSign#1),1.1.1
 package com.carofly.game_server.config;
 
+import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,6 +20,11 @@ public class JwtAuthFilter   extends OncePerRequestFilter{
     this.jwtUtil = jwtUtil;
     this.userDetailsService = userDetailsService;
 }
+    public String extractClaim(String token,Function<Claims,T> claimsResolver) {
+    }
+    public String extrcactUsername(String token) {
+        return extractClaim(token, Claims::getSubject);
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
