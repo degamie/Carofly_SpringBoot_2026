@@ -1,4 +1,4 @@
-//WID(24/05/2026)(Sarthak Mittal)(DegamieSign)#1.1,1.1,1s.1.1.1.1.1.1/1.1.1.1.1.1.1
+//WID(31/05/2026)(Sarthak Mittal)(DegamieSign)#1.1,1.1,1s.1.1.1.1.1.1/1.1.1.1.1.1.1.1
 package com.carofly.game_server.repository;
 
 //import com.carofly.game_server.entity.Player;
@@ -18,6 +18,7 @@ import java.util.List;
 
 @Repository
 public interface  PlayerRepository extends JpaRepository<Player,String> {
+    public List<Player>findBycarVelocity(Integer velocity);
     public List<Player>findByplayerflightTime(TimeFormat playerFlightTime);
     public List<Player>findByplayername(String playername);
 }
