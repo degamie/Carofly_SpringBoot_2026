@@ -1,4 +1,4 @@
-//WID(30/5/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1.1.1.1.1.1/1.1.1.1.1
+//WID(01/65/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1.1.1.1.1.1/1.1.1.1.1.
 package com.carofly.game_server.service;
 
 //import com.carofly.game_server.entity.Player;
@@ -31,7 +31,11 @@ public class PlayerService {
     public List<Player> getByplayerflightTime(TimeFormat playerflightIime){
         return playerRepository.findByplayerflightTime(playerflightIime);
     }
+    @Transactional
+    public List<Player> updateByPlayer(String playerId,Player playerdto){
+        Player player=playerRepository.findByplayerid(playerId);
 
+    }
 //    @Cacheable(value = "Players", key = "#playername")
     @Async("taskExecutor")
     public List<Player> getByplayername(String playername) {

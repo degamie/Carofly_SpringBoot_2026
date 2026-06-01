@@ -17,14 +17,16 @@ import java.time.LocalTime;
 import java.util.List;
 
 @Repository
-public interface  PlayerRepository extends JpaRepository<Player,String> {
+public interface  PlayerRepository extends JpaRepository<Player,String> {//
+    public List<Player> findByplayerid(String playerid);
+
     public List<Player>saveByplayerflightTime(TimeFormat playerFlightTime);//saving player's updated Flight Time in Game App
     public List<Player>findBycarVelocity(Integer velocity);
     public List<Player>findByplayerflightTime(TimeFormat playerFlightTime);
     public List<Player>findByplayername(String playername);
 }
 
-//    public List<Player> findByplayerid(String playerid);
+
 //        public List<Player>saveByplayerId(String playerId);
 
 //    public List<Player>findPlayeremail( String Playeremail);

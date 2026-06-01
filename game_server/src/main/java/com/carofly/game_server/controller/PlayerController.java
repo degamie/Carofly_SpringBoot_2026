@@ -1,4 +1,4 @@
-//WID(29/05/2026)(Sarthak Mittal)(DegamieSign)#1 ,1.1.1.1.1.1.1.1
+//WID(01/06/2026)(Sarthak Mittal)(DegamieSign)#1 ,1.1.1.1.1.1.1.1
 package com.carofly.game_server.controller;
 //import com.carofly.game_server.service.Class.FireBaseService;
 import com.carofly.game_server.service.PlayerService;
@@ -20,6 +20,10 @@ import java.util.concurrent.ExecutionException;
 public class PlayerController {
     @Autowired
     public PlayerService playerService;
+    @PutMapping("/update/playername")
+    public List<Player> updateByPlayer(@RequestParam String playername,@RequestBody Player player){
+        return playerService.updateByPlayer(playername,player);
+    }
     @GetMapping("/playerflightIime")
     public List<Player> getByplayerflightTime(TimeFormat playerflightIime){
         return playerService.getByplayerflightTime(playerflightIime);
