@@ -1,4 +1,4 @@
-//WID(28/5/2026)(DegamieSign)#1
+//WID(2/06/2026)(DegamieSign)#1.1
 package com.carofly.game_server.controller;
 
 import com.carofly.game_server.service.OpenAIService;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OpenAIController {
     @Autowired
     public OpenAIService aiService;
+    public void setOpenAiService(OpenAIService aiService){this.aiService=aiService;}//binding AiService in App
     public OpenAIController(OpenAIService aiService){
         this.aiService=aiService;
     }
