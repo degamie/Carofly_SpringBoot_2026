@@ -1,4 +1,4 @@
-//WID(31/5/2026)(Sarthak Mittal)(DegamieSign)#1.1/1s.1.1.1.1,1.1.1.1.1.1.1,1
+//WID(02/06/2026)(Sarthak Mittal)(DegamieSign)#1.1/1s.1.1.1.1,1.1.1.1.1.1.1,1.1
 package com.carofly.game_server.config;
 
 import org.springframework.context.annotation.Bean;
@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 //import shaded_package.io.netty.util.concurrent.ThreadPoolTaskExecutor;
 
@@ -18,5 +20,9 @@ public class SecurityConfig {
 
     public SecurityConfig(JwtAuthFilter jwtAuthFilter) {
         this.jwtAuthFilter = jwtAuthFilter;
+    }
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
     }
 }
