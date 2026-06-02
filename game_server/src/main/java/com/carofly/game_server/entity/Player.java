@@ -5,8 +5,6 @@ import com.networknt.schema.format.TimeFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalTime;
 @Data
 @Getter
 @Setter
@@ -17,7 +15,7 @@ import java.time.LocalTime;
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name="playerid",unique = true,nullable = false)
+     @Column(name="playerid",unique = true,nullable = false)
     public String playerId;
     @Column(name="playername",unique = false,nullable=true)
     public String playername;
