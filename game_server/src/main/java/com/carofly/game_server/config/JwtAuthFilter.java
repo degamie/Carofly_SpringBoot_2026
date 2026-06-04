@@ -1,4 +1,4 @@
-//WID(31/5/2026)(Sarthak Mittal)(DegamieSign#1),1.1.1
+//WID(04/06/2026)(Sarthak Mittal)(DegamieSign#1)(Carofly Game(SpringBoot)(API)
 package com.carofly.game_server.config;
 
 import io.jsonwebtoken.Claims;
@@ -19,7 +19,10 @@ public class JwtAuthFilter   extends OncePerRequestFilter{
     public JwtAuthFilter(JwtUtil jwtUtil, UserDetailsService userDetailsService) {
     this.jwtUtil = jwtUtil;
     this.userDetailsService = userDetailsService;
-}
+    }   
+    private String getJwtFromRequest(HttpServeletRequest request){
+        String bearertoken=request.getHeader("Authorization");
+    }
     public String extractClaim(String token,Function<Claims,T> claimsResolver) {
     }
     public String extrcactUsername(String token) {
