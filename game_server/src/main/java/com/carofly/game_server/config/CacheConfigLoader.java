@@ -1,4 +1,4 @@
-//WID(26/05/2026)(Sarthak Mittal)(DegamieSign)#1
+//WID(04/06/2026)(Sarthak Mittal)(DegamieSign)#(Carofly Game's CacheLoaer)(SB)
 package com.carofly.game_server.config;
 
 //import org.springframework.boot.cache.autoconfigure.CacheProperties;
@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 
 public class CacheConfigLoader {
+    public CacheConfigLoader getCacheLoader(CacheConfigLoader cacheLoader){return  cacheLoader;}//Fethcing CacheConfig Loader in App
     CacheConfigLoader cacheLoader=new CacheConfigLoader();
 
     public void setCacheLoader(CacheConfigLoader cacheLoader){this.cacheLoader=cacheLoader;}
