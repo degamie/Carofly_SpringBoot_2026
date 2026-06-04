@@ -1,4 +1,4 @@
-//WID(31/05/2026)(Sarthak Mittal)(DegamieSign)#1.1,1.1,1s.1.1.1.1.1.1/1.1.1.1.1.1.1.1.1
+//WID(03/06/2026)(Sarthak Mittal)(DegamieSign)#1.1,1.1,1s.1.1.1.1.1.1/1.1.1.1.1.1.1.1.1.1
 package com.carofly.game_server.repository;
 
 //import com.carofly.game_server.entity.Player;
@@ -17,7 +17,8 @@ import java.time.LocalTime;
 import java.util.List;
 
 @Repository
-public interface  PlayerRepository extends JpaRepository<Player,String> {//
+public interface  PlayerRepository extends JpaRepository<Player,String> {
+    public List<Player> saveByplayerid(String playerId);
     public List<Player> findByplayerid(String playerId);
 
     public List<Player>saveByplayerflightTime(TimeFormat playerFlightTime);//saving player's updated Flight Time in Game App
