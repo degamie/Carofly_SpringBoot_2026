@@ -18,6 +18,8 @@ import java.util.List;
 
 @Repository
 public interface  PlayerRepository extends JpaRepository<Player,String> {
+    public List<Player> findByplayerVelocity(Integer velocity);
+
     public List<Player> saveByplayerid(String playerId);
     public List<Player> findByplayerid(String playerId);
 

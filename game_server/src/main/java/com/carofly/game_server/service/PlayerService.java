@@ -1,4 +1,4 @@
-//WID(02/65/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1.1.1.1.1.1.1.1/1.1.1.1.1..1.1
+//WID(04/06/2026)(DegamieSign)(Sarthak Mittal)
 package com.carofly.game_server.service;
 
 //import com.carofly.game_server.entity.Player;
@@ -25,6 +25,9 @@ public class PlayerService {
     public final PlayerRepository playerRepository;
     public PlayerService(PlayerRepository playerRepository){
         this.playerRepository =playerRepository;
+    }
+    public List<Player> getByplayerVelocity(Integer velocity) {
+        return playerRepository.findByplayerVelocity(velocity);
     }
     @Async("taskExecutor")
     public List<Player> getByplayername(String playername) {
