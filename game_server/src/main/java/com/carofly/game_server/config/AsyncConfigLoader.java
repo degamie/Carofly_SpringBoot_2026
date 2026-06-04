@@ -1,4 +1,4 @@
-//WID(24/5/2026)(Sarthak Mittal)(DegamieSign)#1.1/1s.1.1.1.1,1.1.1.1.1.1
+//WID(02/06/2026)(Sarthak Mittal)(DegamieSign)#1.1/1s.1.1.1.1,1.1.1.1.1.1.1
 package com.carofly.game_server.config;
 
 import org.springframework.context.annotation.Bean;
@@ -32,9 +32,9 @@ public class AsyncConfigLoader {
 
         return asyncConfigLoader;
     }
-
     public void setAsyncConfigLoader(AsyncConfigLoader asyncConfigLoader){this.asyncConfigLoader=asyncConfigLoader;}//binding AsyncConfig Loader in App
 
+}
 //    public void updateByAsyncConfigLoader(AsyncConfigLoader asyncConfigLoader){
 //        getAsyncConfigLoader(asyncConfigLoader)+setAsyncConfigLoader(asyncConfigLoader)+1;
 //    }
@@ -43,7 +43,6 @@ public class AsyncConfigLoader {
 
 
 
-}
 //    public AsyncConfigLoader(ThreadPoolTaskExecutor Asyncexecutor) {
 //        this.Asyncexecutor=Asyncexecutor;
 //    }
