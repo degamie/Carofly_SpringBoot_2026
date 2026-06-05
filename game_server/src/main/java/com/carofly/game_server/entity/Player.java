@@ -21,10 +21,11 @@ public class Player {
     public String playername;
     @Column(name="flighttime",unique = false,nullable=true)
     public TimeFormat playerFlightTime;
+    @Column(name="score",unique = false)
+    public  int score;
 }
 
-////    @Column(name="score",unique = false)
-//    public  int score;
+
 ////    @Column(name="logintime",unique = false)
 //    public LocalTime  loginTime;
 ////    @Column(name="logoutTime",unique = false)

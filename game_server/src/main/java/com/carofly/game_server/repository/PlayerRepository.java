@@ -18,6 +18,7 @@ import java.util.List;
 
 @Repository
 public interface  PlayerRepository extends JpaRepository<Player,String> {
+    public  List<Player> findByplayerscore(int playerscore);
     public List<Player> findByplayerVelocity(Integer velocity);
 
     public List<Player> saveByplayerid(String playerId);
@@ -27,6 +28,8 @@ public interface  PlayerRepository extends JpaRepository<Player,String> {
     public List<Player>findBycarVelocity(Integer velocity);
     public List<Player>findByplayerflightTime(TimeFormat playerFlightTime);
     public List<Player>findByplayername(String playername);
+
+
 }
 
 
