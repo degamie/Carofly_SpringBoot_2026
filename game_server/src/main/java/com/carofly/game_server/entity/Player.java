@@ -5,6 +5,8 @@ import com.networknt.schema.format.TimeFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalTime;
+
 @Data
 @Getter
 @Setter
@@ -21,8 +23,11 @@ public class Player {
     public String playername;
     @Column(name="flighttime",unique = false,nullable=true)
     public TimeFormat playerFlightTime;
-    @Column(name="score",unique = false)
+    @Column(name="score",unique = false, nullable=true)
     public  int score;
+    @Column(name="logoutdate",unique = false,nullable=true)
+    public LocalTime playermodifieddate;
+
 }
 
 
@@ -32,8 +37,7 @@ public class Player {
 //    public LocalTime  logoutTime;
 ////    @Column(name="loginate",unique = false)
 //    public SimpleDateFormat playercrdate;
-////    @Column(name="logoutdate",unique = false)
-//    public LocalTime  playermodifieddate;
+
 ////    @Column(name="playeremail",unique = false)
 //    public LocalTime  email;
 
