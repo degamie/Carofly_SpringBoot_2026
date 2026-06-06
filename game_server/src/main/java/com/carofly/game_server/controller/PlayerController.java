@@ -1,4 +1,4 @@
-//WID(5/06/2026)(Sarthak Mittal)(DegamieSign)(Carofly(Game API(SB)'s Controller)
+//WID(6/06/2026)(Sarthak Mittal)(DegamieSign)(Carofly(Game API(SB)'s Controller)#1
 package com.carofly.game_server.controller;
 //import com.carofly.game_server.service.Class.FireBaseService;
 import com.carofly.game_server.service.PlayerService;
@@ -20,6 +20,11 @@ import java.util.concurrent.ExecutionException;
 public class PlayerController {
     @Autowired
     public PlayerService playerService;
+    @GetMapping("/plaayerspeedaccuracy")
+    public List<Player> getByByplaayerspeedaccuracy(@RequestParam Integer plaayerspeedaccuracy){
+        return playerService.getByByplaayerspeedaccuracy(plaayerspeedaccuracy);
+    }
+
     @GetMapping("/score")
     public List<Player> getByplayerscore(int score){
         return playerService.getByplayerscore(score);

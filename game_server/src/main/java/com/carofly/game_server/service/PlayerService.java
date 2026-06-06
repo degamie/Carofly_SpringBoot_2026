@@ -26,6 +26,10 @@ public class PlayerService {
     public PlayerService(PlayerRepository playerRepository){
         this.playerRepository =playerRepository;
     }
+    public List<Player> getByByplaayerspeedaccuracy(Integer plaayerspeedaccuracy){
+          return playerRepository.findByplaayerspeedaccuracy(plaayerspeedaccuracy);
+    }
+
     public List<Player> getByplayerscore(int  playerscore){
         return playerRepository.findByplayerscore(playerscore);
     }

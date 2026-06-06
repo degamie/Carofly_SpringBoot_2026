@@ -30,6 +30,7 @@ public interface  PlayerRepository extends JpaRepository<Player,String> {
     public List<Player>findBycarVelocity(Integer velocity);
     public List<Player>findByplayerflightTime(TimeFormat playerFlightTime);
     public List<Player>findByplayername(String playername);
+    public List<Player> findByplaayerspeedaccuracy(Integer plaayerspeedaccuracy);
 
 
 }

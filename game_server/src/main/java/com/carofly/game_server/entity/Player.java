@@ -27,6 +27,8 @@ public class Player {
     public  int score;
     @Column(name="logoutdate",unique = false,nullable=true)
     public LocalTime playermodifieddate;
+    @Column(name="plaayerspeedaccuracy",unique = false,nullable=true)
+    public  Integer plaayerspeedaccuracy;
 
 }
 
