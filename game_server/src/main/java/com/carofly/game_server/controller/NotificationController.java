@@ -1,4 +1,4 @@
-//WID(26/05/2026)(Sarthak Mittal)(DegamieSign)#1.1.1/1.1.1
+//WID(7/06/2026)(Sarthak Mittal)(DegamieSign)(Notification Controller)
 package com.carofly.game_server.controller;
 
 //import com.carofly.game_server.entity.Player;
@@ -7,6 +7,7 @@ package com.carofly.game_server.controller;
 //import com.carofly.game_server.entity.Player;
 //import com.carofly.game_server.service.NotificationServices;
 import com.carofly.game_server.entity.Notifications;
+import com.carofly.game_server.entity.Player;
 import com.carofly.game_server.service.NotificationServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,11 @@ import java.util.List;
 public class NotificationController {
     @Autowired
     public NotificationServices notificationServices;
+    @GetMapping("/msgalloc")
+    public List<Notifications> getbyMsgAllocation (@RequestParam String playerName,@RequestBody Player player){
+        return notificationServices.getbyMsgAllocation(playerName,player);
+    }
+
     @GetMapping("/msgname")
     public List<Notifications> getbymsgName(@RequestParam String msgName, @RequestParam String playerName){
         return notificationServices.getbymsgName(msgName,playerName);

@@ -1,7 +1,8 @@
-//WID(29/5/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1
+//WID(7/6/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1
 package com.carofly.game_server.service;
 
 import com.carofly.game_server.entity.Notifications;
+import com.carofly.game_server.entity.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import com.carofly.game_server.repository.*;
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Nodes.collect;
 //import javax.management.Notification;
 
 //import java.util.List;
@@ -18,6 +21,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class NotificationServices {
+    public String playerId;
     ArrayList<String> players = new ArrayList<>();
     public String playername;
     @Autowired
@@ -29,6 +33,18 @@ public class NotificationServices {
     public NotificationServices() {
     }
     Thread thread = new Thread();
+    public List<Notifications>getbyMsgAllocation(String msgallocation, Player player){
+        String matchedPlayers = players.stream()
+                .filter(playerId.matches(playername) -> playerId.equalsIgnoreCase(player)) // or .matches() if using regex
+        .collect(Collectors.joining(", "));
+
+        logger.info("Fetching Carofly Game's Player Entity: {} {}"
+                + playerService.getByplayer(player)
+                + matchedPlayers);
+//                .sorted()
+
+        return repository.findByMsgAllocation(msgallocation);
+    }
     @Async("taskExecutor")
     public List<Notifications> getbymsgName(String msgName, String playername) {
         String matchedPlayers = players.stream()
