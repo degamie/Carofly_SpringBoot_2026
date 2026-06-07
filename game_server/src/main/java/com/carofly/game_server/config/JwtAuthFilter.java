@@ -1,7 +1,8 @@
-//WID(04/06/2026)(Sarthak Mittal)(DegamieSign#1)(Carofly Game(SpringBoot)(API)
+//WID(6/06/2026)(Sarthak Mittal)(DegamieSign#1)(Carofly Game(SpringBoot)(API)
 package com.carofly.game_server.config;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,7 +11,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import javax.crypto.SecretKey;
 import java.io.IOException;
+import java.util.function.Function;
 
 @Configuration
 public class JwtAuthFilter   extends OncePerRequestFilter{
@@ -23,8 +26,18 @@ public class JwtAuthFilter   extends OncePerRequestFilter{
     private String getJwtFromRequest(HttpServeletRequest request){
         String bearertoken=request.getHeader("Authorization");
     }
-    public String extractClaim(String token,Function<Claims,T> claimsResolver) {
+    public <T> extractClaim(String token, Function<Claims,T> claimsResolver) {
+        final Claims claims= Jwts.parser()
+                                .verifyWith(getSigningKey())
+                                 .parseSignedClaims(token)
+                                .getPayload();
+        return claimsResolver.apply(claims);
     }
+
+    private SecretKey getSigningKey() {
+        return SecretKey;
+    }//TBI
+
     public String extrcactUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
