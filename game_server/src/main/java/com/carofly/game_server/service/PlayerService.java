@@ -1,4 +1,4 @@
-//WID(04/06/2026)(DegamieSign)(Sarthak Mittal)
+//WID(07/06/2026)(DegamieSign)(Sarthak Mittal)(PlayerService)
 package com.carofly.game_server.service;
 
 //import com.carofly.game_server.entity.Player;
@@ -26,6 +26,7 @@ public class PlayerService {
     public PlayerService(PlayerRepository playerRepository){
         this.playerRepository =playerRepository;
     }
+    public List<Player>getByplayer(Player player){return  playerRepository.findBYplayer(player);}//Fetching Player in App
     public List<Player> getByByplaayerspeedaccuracy(Integer plaayerspeedaccuracy){
           return playerRepository.findByplaayerspeedaccuracy(plaayerspeedaccuracy);
     }
