@@ -1,4 +1,4 @@
-//WID(7/6/2026)(Sarthak Mittal)(DegamieSign)#1.1.1.1
+//WID(10/6/2026)(Sarthak Mittal)(DegamieSign)(Notification Services)
 package com.carofly.game_server.service;
 
 import com.carofly.game_server.entity.Notifications;
@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import com.carofly.game_server.repository.*;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+
+import javax.management.Notification;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -30,7 +32,8 @@ public class NotificationServices {
     public PlayerService playerService;
 
     Logger logger = null;
-    public NotificationServices() {
+    public NotificationServices(NotificationRepository repository) {
+        this.repository=repository;
     }
     Thread thread = new Thread();
     public List<Notifications>getbyMsgAllocation(String msgallocation, Player player){

@@ -25,8 +25,7 @@ public class CacheConfigLoader {
         cacheManager.setCacheNames(Arrays.asList("Player","Notifications","SaveGame","LoadGame","Setting"));
         return cacheManager;
 //        cacheManager.setCaffeine(caffeineCacheBuilder());
-    }}
-
+    }
 //    com.github.benmanes.caffeine.cache.Caffeine<Object, Object> caffeineCacheBuilder() {
 //        return CacheProperties.Caffeine.newBuilder()
 //                .initialCapacity(100)
@@ -34,4 +33,7 @@ public class CacheConfigLoader {
 //                .expireAfterWrite(10, TimeUnit.MINUTES) // TTL: Expire 10 mins after creation
 //                .recordStats(); // Enables metrics gathering (great for Actuator monitoring)
 //    }
+}
+
+
 
