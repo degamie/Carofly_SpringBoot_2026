@@ -4,6 +4,7 @@ package com.carofly.game_server.service;
 //import com.carofly.game_server.entity.Player;
 import com.carofly.game_server.entity.Player;
 import com.carofly.game_server.repository.PlayerRepository;
+import com.networknt.schema.format.DateTimeFormat;
 import com.networknt.schema.format.TimeFormat;
 import jakarta.transaction.Transaction;
 import jakarta.transaction.Transactional;
@@ -26,6 +27,7 @@ public class PlayerService {
     public PlayerService(PlayerRepository playerRepository){
         this.playerRepository =playerRepository;
     }
+    public List<Player>getByPlayerloginTime(DateTimeFormat loginTime){return playerRepository.findByplayerloginTime(loginTime);}//Fetching PlayerLogin Time in GameApp
     public List<Player>getByplayer(Player player){return  playerRepository.findBYplayer(player);}//Fetching Player in App
     public List<Player> getByByplaayerspeedaccuracy(Integer plaayerspeedaccuracy){
           return playerRepository.findByplaayerspeedaccuracy(plaayerspeedaccuracy);

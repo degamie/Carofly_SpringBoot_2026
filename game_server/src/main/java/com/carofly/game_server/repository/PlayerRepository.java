@@ -21,6 +21,7 @@ import java.util.List;
 public interface  PlayerRepository extends JpaRepository<Player,String> {
     public List<Player>findBYplayer(Player player);
     public  List<Player> saveByplayername(String playername);
+    public List<Player>findByplayerloginTime(DateTimeFormat loginTime);
     public List<Player>saveByplayerloginTime(DateTimeFormat loginTime);//saving player's updated Flight Time in Game App
     public  List<Player> findByplayerscore(int playerscore);
     public List<Player> findByplayerVelocity(Integer velocity);
