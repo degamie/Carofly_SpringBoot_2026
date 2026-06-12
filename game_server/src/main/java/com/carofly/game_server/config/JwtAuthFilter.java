@@ -1,4 +1,4 @@
-//WID(6/06/2026)(Sarthak Mittal)(DegamieSign#1)(Carofly Game(SpringBoot)(API)
+//WID(12/06/2026)(Sarthak Mittal)(DegamieSign#1)(Carofly Game(SpringBoot)(API))JwtAuthfilter)
 package com.carofly.game_server.config;
 
 import io.jsonwebtoken.Claims;
@@ -8,12 +8,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.crypto.SecretKey;
 import java.io.IOException;
 import java.util.function.Function;
+@EnableWebSecurity
 
 @Configuration
 public class JwtAuthFilter   extends OncePerRequestFilter{

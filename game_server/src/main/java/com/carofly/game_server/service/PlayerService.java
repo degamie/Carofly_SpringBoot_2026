@@ -1,4 +1,4 @@
-//WID(07/06/2026)(DegamieSign)(Sarthak Mittal)(PlayerService)
+//WID(12/06/2026)(DegamieSign)(Sarthak Mittal)(PlayerService)#1
 package com.carofly.game_server.service;
 
 //import com.carofly.game_server.entity.Player;
@@ -20,7 +20,9 @@ import java.time.LocalTime;
 import java.util.List;
 //@Transactional
 //@Component
+@Transactional(readOnly=true)
 @Service
+
 public class PlayerService {
     @Autowired
     public final PlayerRepository playerRepository;

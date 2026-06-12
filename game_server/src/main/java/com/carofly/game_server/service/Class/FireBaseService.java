@@ -1,4 +1,4 @@
-//WID)(6/6/2026)(Sarthak Mittal)(DegamieSign)(FireBaseServices)
+//WID)(12/6/2026)(Sarthak Mittal)(DegamieSign)(FireBaseServices)
 package com.carofly.game_server.service.Class;
 
 import com.google.cloud.firestore.Firestore;
@@ -24,6 +24,11 @@ import java.util.concurrent.ExecutionException;
 @Component
 @Service
 public class FireBaseService implements FireBaseServiceinterface{
+    @Autowired
+    FireBaseServiceinterface fireBaseServiceinterface;
+    public FireBaseService(FireBaseServiceinterface fireBaseServiceinterface){
+        this.fireBaseServiceinterface=fireBaseServiceinterface;
+    }
     @Autowired
     public Firestore db;
     public FireStore getdb(FireStore db){return db;}//Fethcing Db in App
