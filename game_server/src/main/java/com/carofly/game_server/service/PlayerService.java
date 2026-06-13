@@ -26,6 +26,9 @@ import java.util.List;
 public class PlayerService {
     @Autowired
     public final PlayerRepository playerRepository;
+    @Cacheable(value = "Players", key = "#playerId")
+    public List<Player> getplayerspeed(Integer speed) {
+        return playerRepository.findByplayerspeed(speed);}
     public PlayerService(PlayerRepository playerRepository){
         this.playerRepository =playerRepository;
     }
