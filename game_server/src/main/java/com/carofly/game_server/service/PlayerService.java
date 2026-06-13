@@ -20,7 +20,7 @@ import java.time.LocalTime;
 import java.util.List;
 //@Transactional
 //@Component
-@Transactional(readOnly=true)
+@Transactional
 @Service
 
 public class PlayerService {

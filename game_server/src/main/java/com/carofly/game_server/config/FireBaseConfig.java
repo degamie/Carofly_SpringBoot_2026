@@ -54,17 +54,19 @@ public class FireBaseConfig {
     @Autowired
     public FirebaseDatabase firebasedbref;
     public  void setFirebasedbref(FirebaseDatabase firebasedbref){this.firebasedbref=firebasedbref;}//Binding firebaseDb in App
-//    public FirebaseApp initialize() throws IOException {
-//        FileInputStream serviceAccount =
-//                new FileInputStream("path/to/serviceAccountKey.json");
-//
-//        FirebaseOptions options = FirebaseOptions.builder()
-//                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+    public FirebaseApp initialize() throws IOException {
+        FileInputStream serviceAccount =
+                new FileInputStream("resources/serviceAccountKey.json");
+
+        FirebaseOptions options = FirebaseOptions.builder()
+                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                .setDatabaseUrl("https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40carofly-714e0.iam.gserviceaccount.com")
+                .build();
+        return FirebaseApp.initializeApp(options);
+    }
+
 //                .setDatabaseUrl("firebase-adminsdk-fbsvc@carofly-714e0.iam.gserviceaccount.com")
-////                .setDatabaseUrl("https://<your-database-id>.firebaseio.com")
-//                .build();
-//        return FirebaseApp.initializeApp(options);
-//    }
+
 
 
     public Resource getGcpconfig(Resource gcpconfig) {
