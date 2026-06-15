@@ -56,7 +56,7 @@ public class FireBaseConfig {
     public  void setFirebasedbref(FirebaseDatabase firebasedbref){this.firebasedbref=firebasedbref;}//Binding firebaseDb in App
     public FirebaseApp initialize() throws IOException {
         FileInputStream serviceAccount =
-                new FileInputStream("resources/serviceAccountKey.json");
+                new FileInputStream("resources/.gitignore");
 
         FirebaseOptions options = FirebaseOptions.builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
