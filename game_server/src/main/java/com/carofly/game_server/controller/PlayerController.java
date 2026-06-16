@@ -1,4 +1,4 @@
-//WID(10/06/2026)(Sarthak Mittal)(DegamieSign)(Carofly(Game API(SB)'s Controller)#1.1
+//WID(16/06/2026)(Sarthak Mittal)(DegamieSign)(Carofly(Game API(SB)'s Controller)#1.1./1
 package com.carofly.game_server.controller;
 //import com.carofly.game_server.service.Class.FireBaseService;
 import com.carofly.game_server.entity.Notifications;
@@ -22,6 +22,9 @@ import java.util.concurrent.ExecutionException;
 public class PlayerController {
     @Autowired
     public PlayerService playerService;
+    @GetMapping("/logOutTime")
+    public List<Player>getByPlayerlogOutTime(DateTimeFormat logOutTime){return playerService.getplayerlogoutTime(logOutTime);}//Fetching PlayerlogOutTime in GameApp
+
     @GetMapping("/loginTime")
     public List<Player>getByPlayerloginTime(DateTimeFormat loginTime){return playerService.getByPlayerloginTime(loginTime);}//Fetching PlayerLogin Time in GameApp
 

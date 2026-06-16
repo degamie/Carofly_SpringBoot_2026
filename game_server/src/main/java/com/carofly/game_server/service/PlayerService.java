@@ -6,17 +6,12 @@ import com.carofly.game_server.entity.Player;
 import com.carofly.game_server.repository.PlayerRepository;
 import com.networknt.schema.format.DateTimeFormat;
 import com.networknt.schema.format.TimeFormat;
-import jakarta.transaction.Transaction;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.sql.Time;
-import java.text.SimpleDateFormat;
-import java.time.LocalTime;
 import java.util.List;
 //@Transactional
 //@Component
@@ -27,6 +22,8 @@ public class PlayerService {
     @Autowired
     public final PlayerRepository playerRepository;
     @Cacheable(value = "Players", key = "#playerId")
+    public List<Player>getplayerlogoutTime(DateTimeFormat logoutTime) {
+        return playerRepository.findByplayerlogoutTime(logoutTime);}
     public List<Player> getplayerspeed(Integer speed) {
         return playerRepository.findByplayerspeed(speed);}
     public PlayerService(PlayerRepository playerRepository){

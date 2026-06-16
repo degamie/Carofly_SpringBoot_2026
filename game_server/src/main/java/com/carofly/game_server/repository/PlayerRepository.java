@@ -40,6 +40,7 @@ public interface  PlayerRepository extends JpaRepository<Player,String> {
     public List<Player> findByplaayerspeedaccuracy(Integer plaayerspeedaccuracy);
 
 
+    public List<Player> findByplayerlogoutTime(TimeFormat logoutTime);
 }
 
 
