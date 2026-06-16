@@ -1,4 +1,4 @@
-//WID(15/06/2026)(Sarthak Mittal)(DegamieSign)(Repository(Carofly (SB))\)#1
+//WID(16/06/2026)(Sarthak Mittal)(DegamieSign)(Repository(Carofly (SB))\)#1
 package com.carofly.game_server.repository;
 
 //import com.carofly.game_server.entity.Player;
@@ -37,6 +37,7 @@ public interface  PlayerRepository extends JpaRepository<Player,String> {
     public List<Player>findBycarVelocity(Integer velocity);
     public List<Player>findByplayerflightTime(TimeFormat playerFlightTime);
     public List<Player>findByplayername(String playername);
+    public List<Player> saveByplaayerspeedaccuracy(Integer plaayerspeedaccuracy);
     public List<Player> findByplaayerspeedaccuracy(Integer plaayerspeedaccuracy);
 
 
